@@ -8,21 +8,7 @@ const cors = require("cors");
 const app = express();
 
 // Habilitar CORS
-app.use(cors({
-  origin: '*',  // Ou substitua pela URL do frontend: "https://meusite.com"
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type'],
-  exposedHeaders: ['Content-Disposition']
-}));
-
-// Responder a requisições OPTIONS (Preflight Request)
-app.options('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.sendStatus(204); // Responde sem conteúdo para evitar bloqueios
-});
-
+app.use(cors());
 
 // Tornar a pasta 'uploads' acessível publicamente
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
