@@ -9,7 +9,7 @@ const app = express();
 
 // Habilitar CORS
 app.use(cors({
-  origin: 'https://api-removebg-production.up.railway.app', // Para permitir qualquer domínio (pode ser substituído pelo frontend específico)
+  origin: '*', // Para permitir qualquer domínio (pode ser substituído pelo frontend específico)
   methods: ['GET', 'POST'], // Métodos permitidos
   allowedHeaders: ['Content-Type'], // Headers permitidos
   exposedHeaders: ['Content-Disposition'] // Para downloads
