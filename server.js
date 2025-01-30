@@ -8,7 +8,13 @@ const cors = require("cors");
 const app = express();
 
 // Habilitar CORS
-app.use(cors());
+app.use(cors({
+  origin: '*', // Para permitir qualquer domínio (pode ser substituído pelo frontend específico)
+  methods: ['GET', 'POST'], // Métodos permitidos
+  allowedHeaders: ['Content-Type'], // Headers permitidos
+  exposedHeaders: ['Content-Disposition'] // Para downloads
+}));
+
 
 // Tornar a pasta 'uploads' acessível publicamente
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
